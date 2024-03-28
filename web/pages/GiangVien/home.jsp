@@ -670,5 +670,6 @@
                 <%@ include file="../../layout/footer.jsp" %>
             </div>
 
+        </div>
     </body>
 </html>

@@ -6,34 +6,43 @@ package entity;
 
 /**
  *
- * @author LENOVO
+ * @a/**author LENOVO
  */
+
 public class GiangVien {
-    private String masogv;
+     private String maso;
     private String hoten;
     private String email;
     private String password;
     private String chucvu;
+    private String trinhdo;
+    private String khoa;
     public GiangVien(){
         
     }
-    public GiangVien(String masogv, String hoten, String email, String password, String chucvu){
-        this.masogv=masogv;
+    public GiangVien(String maso, String hoten, String email, String password, String chucvu, String trinhdo, String khoa){
+        this.maso=maso;
         this.hoten=hoten;
         this.email=email;
-        this.password=password;
-        this.chucvu=chucvu;
+      //  this.password=password;
+     //   this.chucvu=chucvu;
+        this.trinhdo=trinhdo;
+        this.khoa=khoa;
     }
-    public String getMaSoGV(){
-        return masogv;
+
+    public GiangVien(String string, String string0, String string1, String string2, String string3) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    public void setMaSoGV(String masogv){
-        this.masogv=masogv;
+    public String getMaSo(){
+        return maso;
     }
-    public String getHoTenGV(){
+    public void setMaSoCB(String maso){
+        this.maso=maso;
+    }
+    public String getHoTenCB(){
         return hoten;
     }
-    public void setHoTenGV(String hotengv){
+    public void setHoTenCB(String hoten){
         this.hoten=hoten;
     }
     public String getEmail(){
@@ -42,20 +51,32 @@ public class GiangVien {
     public void setEmail(String email){
         this.email=email;
     }
-    public String getPassword(){
-        return password;
+//    public String getPassword(){
+//        return password;
+//    }
+//    public void setPassword(String password){
+//        this.password=password;
+//    }
+//    public String getChucVu(){
+//        return chucvu;
+//    }
+//    public void setChucVu(String chucvu){
+//        this.chucvu=chucvu;
+//    }
+    public String getKhoa(){
+        return khoa;
     }
-    public void setPassword(String password){
-        this.password=password;
+    public void setKhoa(String khoa){
+        this.khoa=khoa;
     }
-    public String getChucVu(){
-        return chucvu;
+    public String getTrinhDo(){
+        return trinhdo;
     }
-    public void setChucVu(String chucvu){
-        this.chucvu=chucvu;
+    public void setTrinhDo(String trinhdo){
+        this.trinhdo=trinhdo;
     }
-    @Override
-    public String toString() {
-        return "Account{" + "ma so giang vien=" + masogv + ", ho ten giang vien=" + hoten + ", Email=" + email + ", Password=" + password + ", chuc vu=" + chucvu + '}';
-    }
+   // @Override
+//    public String toString() {
+//        return "Account{" + "ma so giang vien=" + maso + ", ho ten giang vien=" + hoten + ", Email=" + email + ", Password=" + password + ", hoc vi=" + chucvu + '}';
+//    }
 }

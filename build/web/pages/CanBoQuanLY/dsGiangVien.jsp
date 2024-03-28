@@ -5,11 +5,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import= "entity.GiangVien"%>
+<%@page import = "dao.Dao" %>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Page Quan Ly Giang Vien</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
         <style>
             .addBtn {
@@ -41,75 +45,90 @@
         </style>
     </head>
     <body>
-        <%@ include file="../../layout/header.jsp" %>
+        <form action="ThemGiangVien" method="post">
+            <%@ include file="../../layout/header.jsp" %>
 
-        <%@ include file="../../layout/sidebar.jsp" %>
+            <%@ include file="../../layout/sidebar.jsp" %>
 
-        <div class="main-panel">
-            <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Quản Lý Giảng Viên</h4>
+            <div class="main-panel">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Quản Lý Giảng Viên</h4>
+                            <button type="button" value="submit" href="" class="addBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">+Thêm Giảng Viên</button>
 
-                        <button class="addBtn">+Thêm Giảng Viên</button>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            User
-                                        </th>
-                                        <th>
-                                            First name
-                                        </th>
-                                        <th>
-                                            Progress
-                                        </th>
-                                        <th>
-                                            Amount
-                                        </th>
-                                        <th>
-                                            Deadline
-                                        </th>
-                                        <th>
-                                            Action
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="py-1">
-                                            <img src="../../images/faces/face1.jpg" alt="image"/>
-                                        </td>
-                                        <td>
-                                            Herman Beck
-                                        </td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            $ 77.99
-                                        </td>
-                                        <td>
-                                            May 15, 2015
-                                        </td>
-                                        <td>
-                                            <a href=""><img style="width: 30px;height:30px" src="../../images/file-icons/edit-solid-36.png"/></a>&nbsp;
-                                            <a href=""><img style="width: 30px;height:30px"  src="../../images/file-icons/trash-regular-36.png"/></a>
-                                        </td>
-                                    </tr>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                                </tbody>
-                            </table>
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #003399">Form Add Giang Vien</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div style="margin-left: 25px">Mã số<span style="color: red;">*</span></div>
+                                            <input style="width: 400px;margin-left: 25px;height:40px;" id="my-element" type="text" name="maso" placeholder="A0001" required><br><br>
+                                            <div style="margin-left: 25px">Họ Tên<span style="color: red;">*</span></div>
+                                            <input style="width: 400px;margin-left: 25px;height:40px;" id="my-element" type="text" name="hoten" placeholder="Nguyen Van A " required><br><br>
+                                            <div style="margin-left: 25px">Khoa<span style="color: red;">*</span></div>
+                                            <input style="width: 400px;margin-left: 25px;height:40px;" id="my-element" type="text" name="khoa" placeholder="Cong Nghe Thong Tin" required><br><br>
+                                            <div style="margin-left: 25px">Email<span style="color: red;">*</span></div>
+                                            <input style="width: 400px;margin-left: 25px;height:40px;" id="my-element" type="text" name="email" placeholder="NVAa0001@ctu.edu." required><br><br>
+                                            <div style="margin-left: 25px">Trình Độ<span style="color: red;">*</span></div>
+                                            <input style="width: 400px;margin-left: 25px;height:40px;" id="my-element" type="text" name="trinhdo" placeholder="Dai Hoc" required><br><br>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" value="submit" class="btn btn-primary">+Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Modal -->
+
+
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Mã số 
+                                            </th>
+                                            <th>
+                                                Họ Tên
+                                            </th>
+                                            <th>
+                                                Khoa
+                                            </th>
+                                            <th>
+                                                Email
+                                            </th>
+                                            <th>
+                                                Trình độ
+                                            </th>
+                                            <th>
+                                                Chỉnh sửa
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <%@include file="../../layout/footer.jsp" %>
-        </div>
+                <%@include file="../../layout/footer.jsp" %>
+
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        </form>
+
     </body>
 </html>
 

@@ -32,8 +32,8 @@
     <body>
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="/NienLuan/"><img src="${pageContext.request.contextPath}/images/Logo.png" class="mr-2" alt="logo"/>CTU</a>
-                <a class="navbar-brand brand-logo-mini" href="/NienLuan/"><img src="${pageContext.request.contextPath}/images/Logo.png" alt="logo"/></a>
+                <a class="navbar-brand brand-logo mr-5" href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/images/Logo.png" class="mr-2" alt="logo"/>CTU</a>
+                <a class="navbar-brand brand-logo-mini" href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/images/Logo.png" alt="logo"/></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -63,6 +63,7 @@
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon bg-success">
                                         <i class="ti-info-alt mx-0"></i>
+                                        
                                     </div>
                                 </div>
                                 <div class="preview-item-content">
@@ -109,10 +110,13 @@
                                 <i class="ti-settings text-primary"></i>
                                 Settings
                             </a>
-                            <a class="dropdown-item">
+                            
+                            <!-- <a class="dropdown-item" href="${pageContext.request.contextPath}./control/DangXuat"> --> 
+                              <a class="dropdown-item" href="${pageContext.request.contextPath}/control/DangXuat">
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
                             </a>
+                            
                         </div>
                     </li>
                     <li class="nav-item nav-settings d-none d-lg-flex">

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import entity.GiangVien;
+import entity.TaiKhoan;
 
 /**
  *
@@ -34,23 +34,53 @@ public class SignUp extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String hoten = request.getParameter("hoten");
-        String masogv = request.getParameter("masogv");
+        String maso = request.getParameter("maso");
         //String re_pass = request.getParameter("repass")
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String chucvu = request.getParameter("chucvu");
-         Dao dao = new Dao();
-         GiangVien a = dao.checkAccountExist(masogv);
-            if(a == null){
-                //dc signup
-                dao.dangkyTaiKhoan(hoten,masogv,email,password,chucvu);
+        int role = 0;
+        switch (chucvu) {
+            case "giangvien":
+                role = 1;
+                break;
+            case "canbo":
+                role = 2;
+                break;
+            case "sinhvien":
+                role = 3;
+                break;
+            default:
+                throw new IllegalArgumentException("Chuc vu khong hop le: " + chucvu);
+        }
+        Dao dao = new Dao();
+        TaiKhoan tk = dao.checkTaiKhoan(maso);
+        if (tk==null) {
+            if (chucvu.equals("canbo")) {
+                dao.DangKy(maso, hoten, email, password, chucvu, role);
+                response.sendRedirect("pages/CanBoQuanLY/home.jsp");
+                System.out.println("Ten toi la " + hoten);
+                System.out.println("Chuc vu cua toi la " + chucvu + "," + role);
+
+            } else if (chucvu.equals("giangvien")) {
+                dao.DangKy(maso, hoten, email, password, chucvu, role);
                 response.sendRedirect("trangchu.jsp");
-            }else{
-                //day ve trang login.jsp
-                response.sendRedirect("DangNhap.jsp");
+                System.out.println("Ten toi la " + hoten);
+                System.out.println("Chuc vu cua toi la " + chucvu + "," + role);
+            } else if (chucvu.equals("sinhvien")) {
+                dao.DangKy(maso, hoten, email, password, chucvu, role);
+                response.sendRedirect("trangchu2.jsp");
+                System.out.println("Ten toi la " + hoten);
+                System.out.println("Chuc vu cua toi la " + chucvu + "," + role);
+            } else {
+                response.sendRedirect("loi.jsp");
             }
 
-        System.out.println("Ten toi la "+hoten);
+        }
+        else{
+            System.out.println("Tai khoan da ton tai");
+            response.sendRedirect("DangNhap.jsp");
+        }
 
     }
 

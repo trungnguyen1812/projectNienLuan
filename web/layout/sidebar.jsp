@@ -12,10 +12,11 @@
         <title>Quan Ly CTU</title>
     </head>
     <body>
+       
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul style="margin-left: -10px;" class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/NienLuan/pages/CanBoQuanLY/home.jsp">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/pages/CanBoQuanLY/home.jsp">
                         <i class="icon-grid menu-icon"></i>
                         <span class="menu-title">Trang Chủ</span>
                     </a>
@@ -28,8 +29,8 @@
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/NienLuan/pages/CanBoQuanLY/dsGiangVien.jsp">Danh Sách Giảng Viên</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/NienLuan/pages/CanBoQuanLY/dsDeTai.jsp">Danh sách Đề Tài</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath}/pages/CanBoQuanLY/dsGiangVien.jsp">Danh Sách Giảng Viên</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath}/pages/CanBoQuanLY/dsDeTai.jsp">Danh sách Đề Tài</a></li>
                         </ul>
                     </div>
                 </li>
@@ -41,7 +42,7 @@
                     </a>
                     <div class="collapse" id="form-elements">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="/NienLuan/pages/CanBoQuanLY/dsSinhVien.jsp">Danh Sách Sinh Viên</a></li>
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/pages/CanBoQuanLY/dsSinhVien.jsp">Danh Sách Sinh Viên</a></li>
                         </ul>
 
                     </div>
@@ -54,9 +55,9 @@
                     </a>
                     <div class="collapse" id="charts">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/NienLuan/pages/CanBoQuanLY/chart.jsp">Danh Sách Sinh Viên</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/NienLuan/pages/CanBoQuanLY/chart.jsp">Danh Sách Giảng Viên</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/NienLuan/pages/CanBoQuanLY/chart.jsp">Danh Sách Đề Tài</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath}/pages/CanBoQuanLY/chart.jsp">Danh Sách Sinh Viên</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath}/pages/CanBoQuanLY/chart.jsp">Danh Sách Giảng Viên</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath}/pages/CanBoQuanLY/chart.jsp">Danh Sách Đề Tài</a></li>
 
                         </ul>
                     </div>

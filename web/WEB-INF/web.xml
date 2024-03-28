@@ -8,6 +8,18 @@
         <servlet-name>DangNhap</servlet-name>
         <servlet-class>control.DangNhap</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ThemGV</servlet-name>
+        <servlet-class>control.ThemGV</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DangXuat</servlet-name>
+        <servlet-class>control.DangXuat</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ThemGiangVien</servlet-name>
+        <servlet-class>control.ThemGiangVien</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/SignUp</url-pattern>
@@ -16,8 +28,20 @@
         <servlet-name>DangNhap</servlet-name>
         <url-pattern>/DangNhap</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThemGV</servlet-name>
+        <url-pattern>/ThemGV</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DangXuat</servlet-name>
+        <url-pattern>/DangXuat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThemGiangVien</servlet-name>
+        <url-pattern>/ThemGiangVien</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>./pages/CanBoQuanLY/home.jsp</welcome-file>
-<!--         <welcome-file>DangNhap.jsp</welcome-file>-->
+        <!-- <welcome-file>pages/CanBoQuanLY/home.jsp</welcome-file>!-->
+        <welcome-file>DangNhap.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

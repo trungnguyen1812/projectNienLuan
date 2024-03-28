@@ -2,42 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entity;
 
 /**
  *
  * @author LENOVO
  */
-public class CanBoQuanLy {
-     private String maso;
+public class TaiKhoan {
+    private String maso;
     private String hoten;
     private String email;
     private String password;
     private String chucvu;
-    public CanBoQuanLy(){
+    private int role;
+    public TaiKhoan(){
         
     }
-    public CanBoQuanLy(String maso, String hoten, String email, String password, String chucvu){
+    public TaiKhoan(String maso, String hoten, String email, String password, String chucvu,int role){
         this.maso=maso;
         this.hoten=hoten;
         this.email=email;
         this.password=password;
         this.chucvu=chucvu;
+        this.role=role;
     }
-    public String getMaSoCB(){
+    public String getMaSo(){
         return maso;
     }
-    public void setMaSoCB(String maso){
-        this.maso=maso;
+    public void setMaSo(String masocb){
+        this.maso=masocb;
     }
-    public String getHoTenCB(){
+    public String getHoTen(){
         return hoten;
     }
-    public void setHoTenCB(String hoten){
+    public void setHoTen(String hoten){
         this.hoten=hoten;
     }
     public String getEmail(){
@@ -57,6 +55,12 @@ public class CanBoQuanLy {
     }
     public void setChucVu(String chucvu){
         this.chucvu=chucvu;
+    }
+    public int getRole(){
+        return role;
+    }
+    public void setRole(int role){
+        this.role=role;
     }
     @Override
     public String toString() {

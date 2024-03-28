@@ -4,23 +4,20 @@
  */
 package control;
 
+import dao.Dao;
+import entity.GiangVien;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.annotation.WebServlet;
-
-import dao.Dao;
-import entity.TaiKhoan;
 
 /**
  *
  * @author LENOVO
  */
-public class DangNhap extends HttpServlet {
+public class ThemGV extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,36 +32,16 @@ public class DangNhap extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String maso = request.getParameter("maso");
-        String password = request.getParameter("password");
+        String hoten = request.getParameter("hoten");
+        String khoa = request.getParameter("khoa");
+        String email = request.getParameter("email");
+        String trinhdo = request.getParameter("trinhdo");
         Dao dao = new Dao();
-        TaiKhoan a = dao.DangNhap(maso, password);
-        if (a == null) {
-            request.setAttribute("thongdiep", "Ma so hoac mat khau sai");
-            request.getRequestDispatcher("DangNhap.jsp").forward(request, response);
-            System.out.println("Ma so hoac mat khau sai"); 
-        } else {
-            HttpSession session = request.getSession();
-            session.setAttribute("taikhoan", a);
-            session.setMaxInactiveInterval(1000); //được sử dụng để đặt thời gian chờ không hoạt động tối đa cho phiên HttpSession, được tính bằng giây.
-//            response.sendRedirect("pages/CanBoQuanLY/home.jsp");
-//            System.out.println("Dang nhap thanh cong");
-
-            switch (a.getRole()) {
-                case 1:
-                    response.sendRedirect("pages/GiangVien/home.jsp");
-                    break;
-                case 2:
-                    response.sendRedirect("pages/CanBoQuanLY/home.jsp");
-                    break;
-                case 3:
-                    response.sendRedirect("pages/SinhVien/home.jsp");
-                    break;
-                default:
-                    response.sendRedirect("loi.jsp");
-            }
-            System.out.println("Đăng nhập thành công");
-        }
-
+        dao.ThemGiangVien(maso, hoten, khoa, email, trinhdo);
+       // GiangVien newGV = dao.getGiangVienByMaso(maso);
+        response.sendRedirect("pages/GiangVien/dsGiangVien.jsp");
+      //  request.getRequestDispatcher("pages/GiangVien/dsGiangVien.jsp").forward(request, response);
+        System.out.println("Ten Giang vien da them la "+hoten);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

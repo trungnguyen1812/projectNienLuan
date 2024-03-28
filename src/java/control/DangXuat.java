@@ -11,16 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.annotation.WebServlet;
-
-import dao.Dao;
-import entity.TaiKhoan;
 
 /**
  *
  * @author LENOVO
  */
-public class DangNhap extends HttpServlet {
+public class DangXuat extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,37 +30,10 @@ public class DangNhap extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String maso = request.getParameter("maso");
-        String password = request.getParameter("password");
-        Dao dao = new Dao();
-        TaiKhoan a = dao.DangNhap(maso, password);
-        if (a == null) {
-            request.setAttribute("thongdiep", "Ma so hoac mat khau sai");
-            request.getRequestDispatcher("DangNhap.jsp").forward(request, response);
-            System.out.println("Ma so hoac mat khau sai"); 
-        } else {
-            HttpSession session = request.getSession();
-            session.setAttribute("taikhoan", a);
-            session.setMaxInactiveInterval(1000); //được sử dụng để đặt thời gian chờ không hoạt động tối đa cho phiên HttpSession, được tính bằng giây.
-//            response.sendRedirect("pages/CanBoQuanLY/home.jsp");
-//            System.out.println("Dang nhap thanh cong");
-
-            switch (a.getRole()) {
-                case 1:
-                    response.sendRedirect("pages/GiangVien/home.jsp");
-                    break;
-                case 2:
-                    response.sendRedirect("pages/CanBoQuanLY/home.jsp");
-                    break;
-                case 3:
-                    response.sendRedirect("pages/SinhVien/home.jsp");
-                    break;
-                default:
-                    response.sendRedirect("loi.jsp");
-            }
-            System.out.println("Đăng nhập thành công");
-        }
-
+        HttpSession session = request.getSession();
+        session.removeAttribute("taikhoan");
+        //response.sendRedirect("DangNhap.jsp");
+        response.sendRedirect(request.getContextPath() + "DangNhap.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
